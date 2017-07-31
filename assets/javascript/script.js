@@ -25,9 +25,6 @@ $( document ).ready(function() {
     "padme amidala",
     "queen amidala",
     "anakin skywalker",
-    "mace windu",
-    "mon mothma",
-    "admiral ackbar",
   ];
 
   //GIF SEARCH INPUT
@@ -39,9 +36,9 @@ $( document ).ready(function() {
 
   //GIF SEARCH BUTTON-CLICK
   $("#gif-search").on("click", function(event)  {
-    //if (($("#gif-input").val()).toLowerCase() === herosArray.) {
     if ($.inArray(($("#gif-input").val()).toLowerCase(), herosArray) !== -1)  {
       event.preventDefault();
+      $("#gif-results").children("li").remove();
     	var searchTerm = $("#gif-input").val();
     	var apiKey = "de2a630887f841daa7108fc41b93e1c0";
     	var protocol = "https://";
@@ -59,16 +56,19 @@ $( document ).ready(function() {
   		  url: url,
   		  method: "GET"
         }).done(function(response) {
-        	prependGifs(response);
+        	appendGifs(response);
       });
+    } else if (($("#gif-input").val()).toLowerCase() === "jar jar binks") {
+        alert("No. Just... No.");
     } else {
-      alert("That is not a main Star Wars hero!");
+        alert("That is not a main Star Wars hero!");
     }
   });
 
   //CLICKING ON RECENT SEARCHES
   $("#recents-buttons").on("click", "li", function(event) {
     event.preventDefault();
+    $("#gif-results").children("li").remove();
   	var searchTerm = $(this).text();
   	var apiKey = "de2a630887f841daa7108fc41b93e1c0";
   	var protocol = "https://";
@@ -80,17 +80,17 @@ $( document ).ready(function() {
 		  url: url,
 		  method: "GET"
       }).done(function(response) {
-      	prependGifs(response);
+      	appendGifs(response);
     });
 
   });
 
   //GETTING GIF SEARACH RESULTS
-  function prependGifs(response) {
+  function appendGifs(response) {
   	var gifs = response.data;
-      for(var i=0; i < gifs.length; i++) {
+      for(var i=0; i < 10; i++) {
         var img = gifs[i].images.preview_gif.url;
-      	 $("#gif-results").prepend("<li><img src='" + img + "'></img></li>");
+          $("#gif-results").append("<li><img src='" + img + "'></img></li>");
        }
   }
 

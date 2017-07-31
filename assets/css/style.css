@@ -1,5 +1,5 @@
 
-/*SECTIONS*/
+/*MAIN SECTIONS*/
 
 body {
   background-color: #76828E;
@@ -41,7 +41,6 @@ body {
   padding-right: 5%;
   margin: 0;
   color: #444;
-  text-align: center;
 }
 
 /*BUTTONS AND INPUT FIELDS*/
@@ -123,7 +122,12 @@ p {
 
 #gif-results li {
   display: inline-block;
-  margin: 10px 10px 10px 10px;
+  margin: 0 10px 40px 10px;
+  border: 3px solid #1B2F43;
+}
+
+#gif-results li img {
+  height: 150px;
 }
 
 /*STICKY FOOTER*/
