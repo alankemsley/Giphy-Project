@@ -38,7 +38,7 @@ $( document ).ready(function() {
   $("#gif-search").on("click", function(event)  {
     if ($.inArray(($("#gif-input").val()).toLowerCase(), herosArray) !== -1)  {
       event.preventDefault();
-      $("#gif-results").children("li").remove();
+      $("#gif-results").children("div").remove();
     	var searchTerm = $("#gif-input").val();
     	var apiKey = "de2a630887f841daa7108fc41b93e1c0";
     	var protocol = "https://";
@@ -68,7 +68,7 @@ $( document ).ready(function() {
   //CLICKING ON RECENT SEARCHES
   $("#recents-buttons").on("click", "li", function(event) {
     event.preventDefault();
-    $("#gif-results").children("li").remove();
+    $("#gif-results").children("div").remove();
   	var searchTerm = $(this).text();
   	var apiKey = "de2a630887f841daa7108fc41b93e1c0";
   	var protocol = "https://";
@@ -90,7 +90,7 @@ $( document ).ready(function() {
   	var gifs = response.data;
       for(var i=0; i < 10; i++) {
         var img = gifs[i].images.preview_gif.url;
-          $("#gif-results").append("<li><img src='" + img + "'></img></li>");
+          $("#gif-results").append("<div class='gif-div'><li><img src='" + img + "'></li>" + "<p>Rated " + (gifs[i].rating).toUpperCase() + "</p>");
        }
   }
 
