@@ -9,33 +9,36 @@ body {
 }
 
 #header {
-  padding: 70px 20% 50px 20%;
+  padding: 50px 20% 50px 20%;
   margin: 0;
   background-color: #1B2F43;
   border-bottom: solid 10px #FFD700;
 }
 
-#row1 {
-  padding-top: 50px;
+#search-row {
+  padding-top: 30px;
   padding-bottom: 50px;
-  padding-right: 0;
+  padding-left: 5%;
+  padding-right: 5%;
   margin: 0;
   background-color: #76828E;
   text-align: center;
 }
 
-#row2 {
-  padding-top: 50px;
-  padding-bottom: 50px;
+#recents-row {
+  padding-top: 10px;
+  padding-bottom: 40px;
   margin: 0;
   text-align: center;
   background-color: #76828E;
 }
 
-#row3 {
+#results-row {
   background-color: #76828E;
   padding-top: 40px;
   padding-bottom: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
   margin: 0;
   color: #444;
   text-align: center;
@@ -44,7 +47,7 @@ body {
 /*BUTTONS AND INPUT FIELDS*/
 
 .button {
-  background-color: #76828E;
+  background-color: #BAC0C6;
   border: 3px solid #1B2F43;
   margin-top: 20px;
   margin-left: 10px;
@@ -62,17 +65,7 @@ body {
   color: #FFD700;
 }
 
-#add {
-  background-color: #1B2F43;
-  border-color: #1B2F43;
-  color: #FFD700;
-}
-
-#add:hover {
-  opacity: 0.8;
-}
-
-#input {
+#gif-input {
   background-color: #E8EAEC;
   border: 3px solid #1B2F43;
   margin-top: 20px;
@@ -87,6 +80,30 @@ body {
   font-size: 14px;
 }
 
+#gif-search {
+  background-color: #1B2F43;
+  border-color: #1B2F43;
+  color: #FFD700;
+}
+
+#gif-search:hover {
+  opacity: 0.8;
+}
+
+#gif-search:disabled {
+  color: #1B2F43;
+  background-color: #76828E;
+  border: 3px solid #1B2F43;
+}
+
+#gif-search:disabled:hover {
+  opacity: 1;
+}
+
+#recents-buttons li {
+  display: inline-block;
+}
+
 /*TEXT AND IMAGES*/
 
 body h1, h2, h3, h4, h5, h6 {
@@ -98,6 +115,15 @@ body h1, h2, h3, h4, h5, h6 {
 
 p {
   font-size: 16px;
+}
+
+#recents-title {
+  visibility: hidden;
+}
+
+#gif-results li {
+  display: inline-block;
+  margin: 10px 10px 10px 10px;
 }
 
 /*STICKY FOOTER*/
@@ -116,8 +142,8 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  padding-top: 15px;
+  height: 120px;
+  padding-top: 50px;
   background-color: #1B2F43;
   border-top: solid 10px #FFD700;
   color: #FFD700;

@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Oswald:300,400,500,600,700" rel="stylesheet">
   <title>Star Wars Gifs</title>
@@ -19,29 +20,28 @@
     </div>
   </div>
 
-<!-- ROW 1: Gif Buttons -->
-	<div id="row1" class="row">
-		<div>
-			<h2>Select a Character</h2>
+	<!-- ROW 1: Gif Search -->
+		<div id="search-row" class="row">
+			<div>
+				<input id="gif-input" placeholder="Search for Star Wars hero">
+				<button id="gif-search" class = "button buttonDisabled" disabled = "disabled">SEARCH</button>
+			</div>
 		</div>
-		<div id="gif-buttons">
-			<ul>
 
+<!-- ROW 2: Recent Searches -->
+	<div id="recents-row" class="row">
+		<div>
+			<h2 id="recents-title">Recent Searches</h2>
+		</div>
+		<div>
+			<ul id="recents-buttons">
 			</ul>
 		</div>
 	</div>
 
-	<!-- ROW 2: Search and Add Gif Buttons -->
-		<div id="row2" class="row">
-			<div>
-				<input id="input" placeholder="Add character to list">
-				<button id="add" class = "button">ADD</button>
-			</div>
-		</div>
-
 <!-- ROW 3 Gif Results-->
-  <div id="row3" class="row">
-		<ul id="git-results">
+  <div id="results-row" class="row">
+		<ul id="gif-results">
 
 		</ul>
   </div>
@@ -53,8 +53,10 @@
     </div>
   </div>
 
+<!-- JAVASCRIPT -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="assets/javascript/script.js"></script>
+
 </body>
 
 </html>
