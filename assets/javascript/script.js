@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
   var recentsArray = [];
   var herosArray = [
@@ -28,40 +28,40 @@ $( document ).ready(function() {
   ];
 
   //GIF SEARCH INPUT
-  $("#gif-input").on("keyup", function (){
+  $("#gif-input").on("keyup", function() {
     if ($("#gif-input").val().length > 0) {
       $(".buttonDisabled").attr("disabled", false);
     }
   });
 
   //GIF SEARCH BUTTON-CLICK
-  $("#gif-search").on("click", function(event)  {
-    if ($.inArray(($("#gif-input").val()).toLowerCase(), herosArray) !== -1)  {
+  $("#gif-search").on("click", function(event) {
+    if ($.inArray($("#gif-input").val().toLowerCase(), herosArray) !== -1) {
       event.preventDefault();
       $("#gif-results").children("div").remove();
-    	var protocol = "https://";
-    	var domain = "api.giphy.com";
-    	var path = "/v1/gifs/search";
+      var protocol = "https://";
+      var domain = "api.giphy.com";
+      var path = "/v1/gifs/search";
       var searchTerm = $("#gif-input").val();
       var apiKey = "de2a630887f841daa7108fc41b93e1c0";
-    	var url = protocol + domain + path + "?" + "q=" + searchTerm + "&api_key=" + apiKey;
+      var url = protocol + domain + path + "?" + "q=" + searchTerm + "&api_key=" + apiKey;
 
       $("#recents-title").css("visibility", "visible");
       $("#recents-row").css("background-color", "#BAC0C6");
       $("#results-row").css("background-color", "#E8EAEC");
       recentsArray.push(searchTerm);
-      $("#recents-buttons").append("<li class='button'>" + recentsArray[recentsArray.length-1] + "</li>");
+      $("#recents-buttons").append("<li class='button'>" + recentsArray[recentsArray.length - 1] + "</li>");
 
-    	$.ajax({
-  		  url: url,
-  		  method: "GET"
-        }).done(function(response) {
-        	appendGifs(response);
+      $.ajax({
+        url: url,
+        method: "GET"
+      }).done(function(response) {
+        appendGifs(response);
       });
     } else if (($("#gif-input").val()).toLowerCase() === "jar jar binks") {
-        alert("No. Just... No.");
+      alert("No. Just... No.");
     } else {
-        alert("That is not a main Star Wars hero!");
+      alert("That is not a main Star Wars hero!");
     }
   });
 
@@ -69,26 +69,26 @@ $( document ).ready(function() {
   $("#recents-buttons").on("click", "li", function(event) {
     event.preventDefault();
     $("#gif-results").children("div").remove();
-  	var protocol = "https://";
-  	var domain = "api.giphy.com";
-  	var path = "/v1/gifs/search";
+    var protocol = "https://";
+    var domain = "api.giphy.com";
+    var path = "/v1/gifs/search";
     var searchTerm = $(this).text();
     var apiKey = "de2a630887f841daa7108fc41b93e1c0";
-  	var url = protocol + domain + path + "?" + "q=" + searchTerm + "&api_key=" + apiKey;
+    var url = protocol + domain + path + "?" + "q=" + searchTerm + "&api_key=" + apiKey;
 
-  	$.ajax({
-		  url: url,
-		  method: "GET"
-      }).done(function(response) {
-        appendGifs(response);
+    $.ajax({
+      url: url,
+      method: "GET"
+    }).done(function(response) {
+      appendGifs(response);
     });
 
   });
 
   //GETTING GIF SEARACH RESULTS
   function appendGifs(response) {
-  	var gifs = response.data;
-    for(var i=0; i < 10; i++) {
+    var gifs = response.data;
+    for (var i = 0; i < 10; i++) {
       var stillImg = gifs[i].images.original_still.url;
       var movingImg = gifs[i].images.preview_gif.url;
       var id = gifs[i].id;
