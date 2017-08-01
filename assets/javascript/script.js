@@ -80,7 +80,7 @@ $( document ).ready(function() {
 		  url: url,
 		  method: "GET"
       }).done(function(response) {
-      	appendGifs(response);
+        appendGifs(response);
     });
 
   });
@@ -89,17 +89,21 @@ $( document ).ready(function() {
   function appendGifs(response) {
   	var gifs = response.data;
     for(var i=0; i < 10; i++) {
-      var img = gifs[i].images.original_still.url;
-      $("#gif-results").append("<div class='gif-div'><li><img src='" + img + "'></li>" + "<p>Rated " + (gifs[i].rating).toUpperCase() + "</p>");
+      var stillImg = gifs[i].images.original_still.url;
+      var movingImg = gifs[i].images.preview_gif.url;
+      var id = gifs[i].id;
+      $("#gif-results").append("<div class='gif-div' id=" + id + "><li><img data-moving='" + movingImg + "' data-still='" + stillImg + "' src='" + stillImg + "'></li>" + "<p>Rated " + (gifs[i].rating).toUpperCase() + "</p>");
+      $("#" + id).on("click", function(e) {
+        var moving = $(this).find('img').data().moving;
+        var still = $(this).find('img').data().still;
+        var src = $(this).find('img').attr('src');
+        if (src === still) {
+          $(this).find('img').attr('src', moving);
+        } else {
+          $(this).find('img').attr('src', still);
+        }
+      });
     }
   };
-
-
-
-
-
-
-
-
 
 });
