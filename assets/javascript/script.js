@@ -88,10 +88,18 @@ $( document ).ready(function() {
   //GETTING GIF SEARACH RESULTS
   function appendGifs(response) {
   	var gifs = response.data;
-      for(var i=0; i < 10; i++) {
-        var img = gifs[i].images.preview_gif.url;
-          $("#gif-results").append("<div class='gif-div'><li><img src='" + img + "'></li>" + "<p>Rated " + (gifs[i].rating).toUpperCase() + "</p>");
-       }
-  }
+    for(var i=0; i < 10; i++) {
+      var img = gifs[i].images.original_still.url;
+      $("#gif-results").append("<div class='gif-div'><li><img src='" + img + "'></li>" + "<p>Rated " + (gifs[i].rating).toUpperCase() + "</p>");
+    }
+  };
+
+
+
+
+
+
+
+
 
 });
