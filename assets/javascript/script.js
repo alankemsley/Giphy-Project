@@ -39,11 +39,11 @@ $( document ).ready(function() {
     if ($.inArray(($("#gif-input").val()).toLowerCase(), herosArray) !== -1)  {
       event.preventDefault();
       $("#gif-results").children("div").remove();
-    	var searchTerm = $("#gif-input").val();
-    	var apiKey = "de2a630887f841daa7108fc41b93e1c0";
     	var protocol = "https://";
     	var domain = "api.giphy.com";
     	var path = "/v1/gifs/search";
+      var searchTerm = $("#gif-input").val();
+      var apiKey = "de2a630887f841daa7108fc41b93e1c0";
     	var url = protocol + domain + path + "?" + "q=" + searchTerm + "&api_key=" + apiKey;
 
       $("#recents-title").css("visibility", "visible");
@@ -69,11 +69,11 @@ $( document ).ready(function() {
   $("#recents-buttons").on("click", "li", function(event) {
     event.preventDefault();
     $("#gif-results").children("div").remove();
-  	var searchTerm = $(this).text();
-  	var apiKey = "de2a630887f841daa7108fc41b93e1c0";
   	var protocol = "https://";
   	var domain = "api.giphy.com";
   	var path = "/v1/gifs/search";
+    var searchTerm = $(this).text();
+    var apiKey = "de2a630887f841daa7108fc41b93e1c0";
   	var url = protocol + domain + path + "?" + "q=" + searchTerm + "&api_key=" + apiKey;
 
   	$.ajax({
