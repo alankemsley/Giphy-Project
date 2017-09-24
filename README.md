@@ -1,2 +1,4 @@
 # Star Wars Gifs
-## A web application utilizing the Giphy API which allows users to search for Star Wars related graphical image files (gifs).
+## A web application for searching Star Wars-related graphical image files (gifs).
+
+This app utilizes the Giphy API.
